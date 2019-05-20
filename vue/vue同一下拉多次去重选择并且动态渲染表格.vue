@@ -164,6 +164,7 @@ export default {
           getObtainResult(data).then(res => {
             if (res.code === 100) {
               this.buildTableData(res.data)
+              this.total = res.data.rows.length
             } else {
               this.$message.error(res.message)
             }
