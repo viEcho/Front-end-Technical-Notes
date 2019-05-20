@@ -1,5 +1,3 @@
-页面截图：
-![image](https://github.com/viEcho/Front-end-Technical-Notes/blob/master/imgs/distinct_sel.png)
 <template>
   <div id='gainDetails'>
     <div class='tabletitle'>获取列表
@@ -206,8 +204,6 @@ export default {
           val1.fieldValue = ''
         }
       })
-      console.log('change')
-      console.log(this.selectedField[index])
       // 存储下拉改变前字段
       sessionStorage.setItem('changeBeforeField', this.selectedField[index])
       // 构建选中字段集
@@ -274,8 +270,6 @@ export default {
           }
         })
       })
-      console.log('cancle')
-      console.log(this.selectedField)
       this.index--
     },
     // 获取下拉数据
