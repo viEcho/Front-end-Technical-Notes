@@ -1,6 +1,3 @@
-![Image vue](https://github.com/viEcho/Front-end-Technical-Notes/blob/master/imgs/distinct_sel1.png)
-
-
 <template>
   <div id='gainDetails'>
     <div class='tabletitle'>获取列表
