@@ -1,3 +1,14 @@
+页面截图：
+
+
+
+
+
+
+
+
+
+
 <template>
   <div id='gainDetails'>
     <div class='tabletitle'>获取列表
@@ -204,6 +215,8 @@ export default {
           val1.fieldValue = ''
         }
       })
+      console.log('change')
+      console.log(this.selectedField[index])
       // 存储下拉改变前字段
       sessionStorage.setItem('changeBeforeField', this.selectedField[index])
       // 构建选中字段集
@@ -212,24 +225,22 @@ export default {
     },
     // 构建整个数据集
     buildWholeDatas (index) {
-      if (this.formInline.rows.length > 1) {
-        // 组装整个显示或隐藏的下拉
-        this.selectedField.forEach((val, index) => {
-          let selectedField = val
-          this.formInline.rows.forEach((val1, index1) => {
-            let fieldList = val1.fieldList
-            fieldList.forEach((val2, index2) => {
-              // 释放下拉改变前选中的置灰项
-              if (val2.enName === sessionStorage.getItem('changeBeforeField')) {
-                val2.isDisabled = false
-              }
-              if (index !== index1 && val2.enName === selectedField) {
-                val2.isDisabled = true
-              }
-            })
+      // 组装整个显示或隐藏的下拉
+      this.selectedField.forEach((val, index) => {
+        let selectedField = val
+        this.formInline.rows.forEach((val1, index1) => {
+          let fieldList = val1.fieldList
+          fieldList.forEach((val2, index2) => {
+            // 释放下拉改变前选中的置灰项
+            if (val2.enName === sessionStorage.getItem('changeBeforeField')) {
+              val2.isDisabled = false
+            }
+            if (index !== index1 && val2.enName === selectedField) {
+              val2.isDisabled = true
+            }
           })
         })
-      }
+      })
     },
     // 新构建展示下拉数据
     newBuildFieldList (index, fieldList) {
@@ -272,6 +283,9 @@ export default {
           }
         })
       })
+      console.log('cancle')
+      console.log(this.selectedField)
+      this.index--
     },
     // 获取下拉数据
     getGainList () {
