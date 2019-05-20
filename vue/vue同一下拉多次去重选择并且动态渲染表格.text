@@ -1,14 +1,5 @@
 页面截图：
-
-
-
-
-
-
-
-
-
-
+![Image text](https://github.com/viEcho/Front-end-Technical-Notes/blob/master/imgs/distinct_sel.png)
 <template>
   <div id='gainDetails'>
     <div class='tabletitle'>获取列表
