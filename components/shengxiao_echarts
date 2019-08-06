@@ -1,0 +1,132 @@
+/**
+*  生肖图  -- echarts组件实现
+ */
+
+ <template>
+    <div id="VnameQueryShengxiao">
+        <div class="pie-title">
+            <span class="pie-line"></span>
+            <span class="title-span">生肖分布&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位:人</span>
+        </div>
+        <div id="shengxiaoArea" class="pie-area">
+
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    name: 'VnameQueryShengxiao',
+    props: {
+    },
+    data () {
+        return {
+            option: {
+                series: [{
+                    type: 'graph',
+                    layout: 'circular',
+                    circular: {
+                        rotateLabel: true
+                    },
+                    left: '20%',
+                    top: '15%',
+                    right: '20%',
+                    bottom: '30%',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top', // 设置label显示的位置
+                            formatter: '{b}       \n{c} 人', // 设置label读取的值为value
+                            textStyle: { // 标签的字体样式
+                                color: '#333', // 字体颜色
+                                fontStyle: 'normal', // 文字字体的风格 'normal'标准 'italic'斜体 'oblique' 倾斜
+                                fontWeight: 'bolder', // 'normal'标准'bold'粗的'bolder'更粗的'lighter'更细的或100 | 200 | 300 | 400...
+                                fontFamily: 'sans-serif', // 文字的字体系列
+                                fontSize: 12 // 字体大小
+                            }
+                        }
+                    },
+                    symbolSize: (value, params) => {
+                        return value / 2.5;
+                    },
+                    draggable: true,
+                    data: [
+                        { name: "龙", value: 123, syitemStyle: {
+                            normal: {color: '#96C8E3'}
+                        }},
+                        { name: "蛇", value: 123, itemStyle: {
+                            normal: {color: '#4FDAD2'}
+                        }},
+                        { name: "马", value: 123, itemStyle: {
+                            normal: {color: '#72C4FE'}
+                        }},
+                        { name: "羊", value: 123, itemStyle: {
+                            normal: {color: '#3EAFF7'}
+                        }},
+                        { name: "猴", value: 123, itemStyle: {
+                            normal: {color: '#605AD8'}
+                        }},
+                        { name: "鸡", value: 123, itemStyle: {
+                            normal: {color: '#BA51F1'}
+                        }},
+                        { name: "狗", value: 123, itemStyle: {
+                            normal: {color: '#F151BE'}
+                        }},
+                        { name: "猪", value: 123, itemStyle: {
+                            normal: {color: '#BA1816'}
+                        } },
+                        { name: "鼠", value: 123, itemStyle: {
+                            normal: {color: '#F15351'}
+                        }},
+                        { name: "牛", value: 123, itemStyle: {
+                            normal: {color: '#F3D38C'}
+                        }},
+                        { name: "虎", value: 123, itemStyle: {
+                            normal: {color: '#FEBF0E'}
+                        }},
+                        { name: "兔", value: 123, itemStyle: {
+                            normal: {color: '#96E3A4'}
+                        }}
+                    ],
+                    force: {
+                        repulsion: 100, // 节点之间的斥力因子。支持数组表达斥力范围，值越大斥力越大。
+                        gravity: 0.03, // 节点受到的向中心的引力因子。该值越大节点越往中心点靠拢。
+                        edgeLength: 100, // 边的两个节点之间的距离，这个距离也会受 repulsion。[10, 50] 。值越小则长度越长
+                        layoutAnimation: true
+                    }
+                }]
+            }
+        };
+    },
+    methods: {
+        drawPie () {
+            let myPie = this.$echarts.init(document.getElementById('shengxiaoArea'));
+            myPie.setOption(this.option);
+        }
+    },
+    created () {
+        
+    },
+    mounted () {
+        this.drawPie();
+    }
+};
+</script>
+<style lang="scss" scope>
+#VnameQueryShengxiao .pie-title{
+    font-size: 14px;
+    margin-top: 12px;
+    margin-left: 12px;
+    .pie-line{
+        width:2px;
+        height:12px;
+        display: -webkit-inline-box;
+        background:rgba(21,162,225,1);
+    }
+}
+#VnameQueryShengxiao .pie-area{
+    height: 454px;
+    min-width: 532px;
+    margin-top: 12px;
+}
+</style>
+ 
